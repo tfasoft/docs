@@ -22,7 +22,7 @@ const DocsAPI = () => {
       }
 
     return (
-        <div className="pt-3">
+        <div className="pt-5">
             <h1><span className="tags">#</span> API documents</h1>
             <p>Here is all about our stuff</p>
             <br/>
