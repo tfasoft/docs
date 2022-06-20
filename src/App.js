@@ -9,7 +9,7 @@ function App() {
     <Router>
       <div className="App">
         <Navbar />
-        <div className='container'>
+        <div className='container pt-5'>
           <Switch>
             <Route path={'/'} exact><Home /></Route>
             <Route path={'/api'} exact><DocsAPI /></Route>
