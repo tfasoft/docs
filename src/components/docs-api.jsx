@@ -55,12 +55,12 @@ const DocsAPI = () => {
                         <td>800 means your access token and user token is correct.</td>
                     </tr>
                     <tr>
-                        <th scope="row"><b>820</b></th>
-                        <td>820 means admin access token is wrong.</td>
+                        <th scope="row"><b>290</b></th>
+                        <td>290 means admin access token is wrong.</td>
                     </tr>
                     <tr>
-                        <th scope="row"><b>290</b></th>
-                        <td>290 means user token is not existed.</td>
+                        <th scope="row"><b>820</b></th>
+                        <td>820 means user token is not existed.</td>
                     </tr>
                 </tbody>
             </table>
