@@ -13,7 +13,7 @@ function App() {
         <div className='container pt-5'>
           <Switch>
             <Route path={'/docs/'} exact><Home /></Route>
-            <Route path={'/docs/api'} exact><DocsAPI /></Route>
+            <Route path={'/docs/api/'} exact><DocsAPI /></Route>
           </Switch>
         </div>
         <Footer />
