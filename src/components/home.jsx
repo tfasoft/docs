@@ -14,7 +14,7 @@ const Home = () => {
                         <br/>
                         <div className="d-flex justify-content-between">
                             <button className="btn btn-lg btn-success fw-bold" onClick={() => history.push('/api')}>Get started</button>
-                            <button className="btn btn-lg btn-link fw-bold text-success shadow">View on Github</button>
+                            <a className="btn btn-lg btn-link fw-bold text-success shadow" href='https://github.com/tele-fa' target='_blank'>View on Github</a>
                         </div>
                     </div>
                 </div>
