@@ -12,7 +12,7 @@ function App() {
         <Navbar />
         <div className='container pt-5'>
           <Switch>
-            <Route path={'/'} exact><DocsAPI /></Route>
+            <Route path={'/'} exact><Home /></Route>
             <Route path={'/api'} exact><DocsAPI /></Route>
           </Switch>
         </div>
