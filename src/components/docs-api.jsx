@@ -56,11 +56,11 @@ const DocsAPI = () => {
                     </tr>
                     <tr>
                         <th scope="row"><b>820</b></th>
-                        <td>290 means user token is not existed.</td>
+                        <td>820 means admin access token is wrong.</td>
                     </tr>
                     <tr>
                         <th scope="row"><b>290</b></th>
-                        <td>820 means admin access token is wrong.</td>
+                        <td>290 means user token is not existed.</td>
                     </tr>
                 </tbody>
             </table>
