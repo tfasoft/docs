@@ -43,6 +43,7 @@ const Navbar = () => {
 
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+            <Toolbar />
             <Typography
                 variant="h6"
                 sx={{ my: 2 }}
@@ -54,7 +55,10 @@ const Navbar = () => {
             <List>
                 {
                     navItems.map((item) => (
-                        <ListItem key={item} disablePadding>
+                        <ListItem
+                            key={item}
+                            disablePadding
+                        >
                             <ListItemButton
                                 onClick={() => history.push(item.href)}
                                 sx={{ textAlign: 'center' }}
