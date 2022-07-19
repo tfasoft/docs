@@ -113,6 +113,13 @@ const PythonSDK = () => {
                     >
                         - Status codes
                     </Button>
+                    <br />
+                    <Button
+                        variant="text"
+                        href="https://github.com/tele-fa/tfa-python-sdk"
+                    >
+                        - SDK source in GitHub
+                    </Button>
                 </CardContent>
             </Card>
         </Box>
