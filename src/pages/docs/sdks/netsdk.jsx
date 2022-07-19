@@ -6,12 +6,12 @@ import DocsTitle from "../../../components/text/docstitle";
 import DocsSubTitle from "../../../components/text/docssubtitle";
 import DocsParagraph from "../../../components/text/docsparagraph";
 
-const SDKsPage = () => {
+const NetSDK = () => {
     return (
         <Box>
-            <DocsTitle>SDKs introduction</DocsTitle>
+            <DocsTitle>.Net SDK</DocsTitle>
         </Box>
     );
 }
 
-export default SDKsPage;
+export default NetSDK;
