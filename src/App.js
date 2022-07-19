@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import {
     Box,
-    Container,
     createTheme,
     CssBaseline,
     ThemeProvider
@@ -12,6 +11,53 @@ import Navbar from "./components/navbar";
 
 import HomePage from "./pages/home";
 import DocsLayout from "./pages/docslayout";
+
+// Import SDK Pages
+import SDKsPage from "./pages/docs/sdks/sdks";
+import NetSDK from "./pages/docs/sdks/netsdk";
+import LaravelSDK from "./pages/docs/sdks/laravelsdk";
+import PythonSDK from "./pages/docs/sdks/pythonsdk";
+import NodeJsSDK from "./pages/docs/sdks/nodejssdk";
+
+// Import Docs Pages
+import Docs from "./pages/docs/docs/docs";
+import DocsAPI from "./pages/docs/docs/api";
+import DocsCodes from "./pages/docs/docs/codes";
+
+const routes = [
+    {
+        route: '/docs',
+        component: <Docs />
+    },
+    {
+        route: '/docs/api',
+        component: <DocsAPI />
+    },
+    {
+        route: '/docs/codes',
+        component: <DocsCodes />
+    },
+    {
+        route: '/sdks',
+        component: <SDKsPage />
+    },
+    {
+        route: '/sdks/nodejs',
+        component: <NodeJsSDK />
+    },
+    {
+        route: '/sdks/python',
+        component: <PythonSDK />
+    },
+    {
+        route: '/sdks/laravel',
+        component: <LaravelSDK />
+    },
+    {
+        route: '/sdks/.net',
+        component: <NetSDK />
+    },
+];
 
 function App() {
     const theme = createTheme({
@@ -30,7 +76,17 @@ function App() {
                     <Navbar/>
                     <Switch>
                         <Route path="/" exact><HomePage /></Route>
-                        <Route path="/docs" exact><DocsLayout /></Route>
+                        {
+                            routes.map((route) => {
+                                return (
+                                    <Route path={route.route} exact>
+                                        <DocsLayout>
+                                            {route.component}
+                                        </DocsLayout>
+                                    </Route>
+                                );
+                            })
+                        }
                     </Switch>
                 </Box>
             </Router>
