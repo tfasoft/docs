@@ -1,3 +1,5 @@
+import { useHistory } from "react-router-dom";
+
 import {
     colors as Colors,
     Box,
@@ -47,6 +49,8 @@ const sdks = [
 ];
 
 const HomePage = () => {
+    const history = useHistory();
+
     return (
         <Container
             sx={{
@@ -132,6 +136,7 @@ const HomePage = () => {
                         <Button
                             variant="contained"
                             size="large"
+                            onClick={() => history.push('/sdks')}
                             disableElevation
                         >
                             Get started with SDKs
