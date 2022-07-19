@@ -107,8 +107,9 @@ const DocsLayout = (props) => {
                     >
                         {sdkItems.map((item, index) => (
                             <ListItemButton
+                                selected={location.pathname === item.href | location.pathname === `${item.href}/`}
                                 key={item}
-                                onClick={() => console.log(item.href)}
+                                onClick={() => history.push(item.href)}
                             >
                                 <ListItemText primary={item.title} />
                             </ListItemButton>
