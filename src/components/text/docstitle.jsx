@@ -5,7 +5,7 @@ const DocsTitle = (props) => {
 
     return(
         <Typography
-            variant="h5"
+            variant="h4"
             color="primary"
         >
             {text}
