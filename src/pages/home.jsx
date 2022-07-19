@@ -2,7 +2,9 @@ import {
     colors as Colors,
     Box,
     Typography,
-    Grid, Button,
+    Grid,
+    Button,
+    Container,
 } from "@mui/material";
 
 import {
@@ -46,7 +48,11 @@ const sdks = [
 
 const HomePage = () => {
     return (
-        <Box>
+        <Container
+            sx={{
+                mt: "1rem",
+            }}
+        >
             <Grid
                 columns={{ md: 12, xs: 6 }}
                 spacing={2}
@@ -164,8 +170,8 @@ const HomePage = () => {
                     </Masonry>
                 </Grid>
             </Grid>
-        </Box>
-    )
+        </Container>
+    );
 }
 
 export default HomePage;
