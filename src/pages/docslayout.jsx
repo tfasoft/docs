@@ -69,6 +69,7 @@ const DocsLayout = (props) => {
             maxWidth="xl"
             sx={{
                 mt: "1rem",
+                mb: "1rem",
             }}
         >
             <Box
