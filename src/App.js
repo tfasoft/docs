@@ -1,25 +1,49 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import DocsAPI from './components/docs-api';
-import Footer from './components/footer';
 
-import Home from "./components/home";
+import {
+    Box,
+    Container,
+    createTheme,
+    CssBaseline,
+    ThemeProvider
+} from "@mui/material";
+
 import Navbar from "./components/navbar";
 
+import HomePage from "./pages/home";
+import DocsPage from "./pages/docs";
+import SDKsPage from "./pages/sdks";
+
 function App() {
-  return (
-    <Router>
-      <div className="App">
-        <Navbar />
-        <div className='container pt-5'>
-          <Switch>
-            <Route path={'/docs/'} exact><Home /></Route>
-            <Route path={'/docs/api/'} exact><DocsAPI /></Route>
-          </Switch>
-        </div>
-        <Footer />
-      </div>
-    </Router>
-  );
+    const theme = createTheme({
+        palette: {
+            primary: {
+                main: "#2e7c32"
+            }
+        }
+    });
+
+    return (
+        <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <Router>
+                <Box>
+                    <Navbar/>
+                    <Container
+                        sx={{
+                            mt: '1rem',
+                        }}
+                    >
+                        <Switch>
+                            <Route path="/" exact><HomePage/></Route>
+                            <Route path="/docs" exact><DocsPage /></Route>
+                            <Route path="/sdks" exact><SDKsPage /></Route>
+                        </Switch>
+                    </Container>
+                </Box>
+            </Router>
+        </ThemeProvider>
+    );
 }
 
 export default App;
