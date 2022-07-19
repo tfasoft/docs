@@ -11,8 +11,7 @@ import {
 import Navbar from "./components/navbar";
 
 import HomePage from "./pages/home";
-import DocsPage from "./pages/docs";
-import SDKsPage from "./pages/sdks";
+import DocsLayout from "./pages/docslayout";
 
 function App() {
     const theme = createTheme({
@@ -29,17 +28,10 @@ function App() {
             <Router>
                 <Box>
                     <Navbar/>
-                    <Container
-                        sx={{
-                            mt: '1rem',
-                        }}
-                    >
-                        <Switch>
-                            <Route path="/" exact><HomePage/></Route>
-                            <Route path="/docs" exact><DocsPage /></Route>
-                            <Route path="/sdks" exact><SDKsPage /></Route>
-                        </Switch>
-                    </Container>
+                    <Switch>
+                        <Route path="/" exact><HomePage /></Route>
+                        <Route path="/docs" exact><DocsLayout /></Route>
+                    </Switch>
                 </Box>
             </Router>
         </ThemeProvider>
