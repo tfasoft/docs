@@ -7,6 +7,7 @@ const DocsSubTitle = (props) => {
         <Typography
             variant="h6"
             color="primary"
+            gutterBottom
         >
             {text}
         </Typography>

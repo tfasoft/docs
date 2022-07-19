@@ -7,6 +7,7 @@ const DocsTitle = (props) => {
         <Typography
             variant="h4"
             color="primary"
+            gutterBottom
         >
             {text}
         </Typography>

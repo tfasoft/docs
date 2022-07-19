@@ -7,6 +7,8 @@ const DocsParagraph = (props) => {
         <Typography
             variant="body1"
             color="text.secondary"
+            paragraph
+            gutterBottom
         >
             {text}
         </Typography>
