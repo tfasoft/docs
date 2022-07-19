@@ -1,18 +1,21 @@
 import {
+    colors as Colors,
     Box,
     Typography,
-    Grid,
+    Grid, Button,
 } from "@mui/material";
 
 import {
     Masonry,
 } from "@mui/lab";
+
 import HomeSDKsComponent from "../components/sdkhome";
 
 import PythonIcon from '../assets/svg/python.svg';
 import NodeJsIcon from '../assets/svg/nodejs.svg';
 import LaravelIcon from '../assets/svg/laravel.svg';
 import MicrosoftIcon from '../assets/svg/microsoft.svg';
+import PythonExample from '../assets/svg/python-example.svg';
 
 const sdks = [
     {
@@ -44,21 +47,54 @@ const sdks = [
 const HomePage = () => {
     return (
         <Box>
-            <Box>
-                <Typography
-                    color="primary"
-                    variant="h3"
-                    gutterBottom
+            <Grid
+                columns={{ md: 12, xs: 6 }}
+                spacing={2}
+                container
+            >
+                <Grid
+                    xs={6}
+                    sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                    }}
+                    item
                 >
-                    TFA Docs
-                </Typography>
-                <Typography
-                    paragraph
-                    gutterButton
+                    <Box>
+                        <Typography
+                            color="primary"
+                            variant="h3"
+                            gutterBottom
+                        >
+                            TFA Docs
+                        </Typography>
+                        <Typography
+                            variant="h5"
+                            gutterButton
+                        >
+                            Help for wherever you are on your TFA journey.
+                        </Typography>
+                    </Box>
+                </Grid>
+                <Grid
+                    xs={6}
+                    sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                    }}
+                    item
                 >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque. In egestas erat imperdiet sed euismod nisi porta lorem mollis. Morbi tristique senectus et netus. Mattis pellentesque id nibh tortor id aliquet lectus proin. Sapien faucibus et molestie ac feugiat sed lectus vestibulum. Ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Dictum varius duis at consectetur lorem. Nisi vitae suscipit tellus mauris a diam maecenas sed enim. Velit ut tortor pretium viverra suspendisse potenti nullam. Et molestie ac feugiat sed lectus. Non nisi est sit amet facilisis magna. Dignissim diam quis enim lobortis scelerisque fermentum. Odio ut enim blandit volutpat maecenas volutpat. Ornare lectus sit amet est placerat in egestas erat. Nisi vitae suscipit tellus mauris a diam maecenas sed. Placerat duis ultricies lacus sed turpis tincidunt id aliquet.
-                </Typography>
-            </Box>
+                    <Box
+                        component="img"
+                        sx={{
+                            width: "100%",
+                        }}
+                        alt="Python example"
+                        src={PythonExample}
+                    />
+                </Grid>
+            </Grid>
+            <br />
             <Grid
                 columns={{ md: 12, xs: 6 }}
                 spacing={2}
@@ -81,11 +117,33 @@ const HomePage = () => {
                             SDKs
                         </Typography>
                         <Typography
+                            color="text.primary"
                             paragraph
                             gutterButton
                         >
                             We developed some SKDs for developers to use our APIs easily ❤️
                         </Typography>
+                        <Button
+                            variant="contained"
+                            size="large"
+                            disableElevation
+                        >
+                            Get started with SDKs
+                        </Button>
+                        <br />
+                        <br />
+                        <Box
+                            sx={{
+                                bgcolor: Colors.lightGreen[100],
+                                borderLeft: "solid 3px",
+                                borderLeftColor: "primary.main",
+                                p: "1rem",
+                            }}
+                        >
+                            <Typography>
+                                You can go to any SDK you want with clicking on them.
+                            </Typography>
+                        </Box>
                     </Box>
                 </Grid>
                 <Grid
