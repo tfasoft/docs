@@ -1,8 +1,7 @@
 {
   "name": "telegram-factor-authentication-docs",
   "version": "0.1.0",
-  "homepage": "https://tele-fa.github.io/docs",
-  "private": true,
+  "description": "Telegram factor authentication docs.",
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
@@ -26,9 +25,16 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tele-fa/docs.git"
+  },
+  "author": "Amirhossein Mohammadi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tele-fa/docs/issues"
   },
   "eslintConfig": {
     "extends": [
