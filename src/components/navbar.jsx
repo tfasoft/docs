@@ -49,7 +49,7 @@ const Navbar = () => {
                 sx={{ my: 2 }}
                 onClick={() => history.push('/')}
             >
-                TFA Docs
+                TFASoft Docs
             </Typography>
             <Divider />
             <List>
