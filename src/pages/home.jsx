@@ -17,7 +17,7 @@ import HomeSDKsComponent from "../components/sdkhome";
 
 import PythonIcon from '../assets/svg/python.svg';
 import NodeJsIcon from '../assets/svg/nodejs.svg';
-import LaravelIcon from '../assets/svg/laravel.svg';
+import PhpIcon from '../assets/svg/php.svg';
 import MicrosoftIcon from '../assets/svg/microsoft.svg';
 import PythonExample from '../assets/svg/python-example.svg';
 
@@ -41,10 +41,10 @@ const sdks = [
         logo: MicrosoftIcon,
     },
     {
-        title: "Laravel",
-        details: "You are a Laravel developer and need to use TFA, do your job with Laravel SDK!",
-        href: "laravel",
-        logo: LaravelIcon,
+        title: "Php",
+        details: "You are a Php/Laravel developer and need to use TFA, do your job with Php SDK!",
+        href: "php",
+        logo: PhpIcon,
     }
 ];
 
