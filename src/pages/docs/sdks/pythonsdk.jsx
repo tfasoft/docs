@@ -6,16 +6,10 @@ import {
     CardContent, CardHeader, Divider,
 } from "@mui/material";
 
-import { Masonry } from "@mui/lab";
-
 import DocsTitle from "../../../components/text/docstitle";
 import DocsSubTitle from "../../../components/text/docssubtitle";
 import DocsParagraph from "../../../components/text/docsparagraph";
 
-import importPic from "../../../assets/images/python/python-1-import.png";
-import accessPic from "../../../assets/images/python/python-2-access.png";
-import authPic from "../../../assets/images/python/python-3-auth.png";
-import installPic from "../../../assets/images/python/python-install.png";
 import CodeBlock from "../../../components/codeblock";
 
 const PythonSDK = () => {
@@ -32,68 +26,40 @@ const PythonSDK = () => {
             <CodeBlock>
                 $ pip3 install tfa-python-sdk
             </CodeBlock>
-            <br />
-            <br />
             <DocsSubTitle>Writing code</DocsSubTitle>
-            <Masonry
-                spacing={2}
-                columns={2}
-            >
-                <Card
-                    variant='outlined'
-                >
-                    <CardHeader
-                        title="Step 1"
-                    />
-                    <CardContent>
-                        <DocsParagraph>After installation you need to import the class.</DocsParagraph>
-                        <Box
-                            component="img"
-                            sx={{
-                                width: "100%",
-                            }}
-                            alt="Python example"
-                            src={importPic}
-                        />
-                    </CardContent>
-                </Card>
-                <Card
-                    variant='outlined'
-                >
-                    <CardHeader
-                        title="Step 2"
-                    />
-                    <CardContent>
-                        <DocsParagraph>Now define your access token.</DocsParagraph>
-                        <Box
-                            component="img"
-                            sx={{
-                                width: "100%",
-                            }}
-                            alt="Python example"
-                            src={accessPic}
-                        />
-                    </CardContent>
-                </Card>
-                <Card
-                    variant='outlined'
-                >
-                    <CardHeader
-                        title="Step 3"
-                    />
-                    <CardContent>
-                        <DocsParagraph>Last step, auth user with the user token. Now result have the json object and status code.</DocsParagraph>
-                        <Box
-                            component="img"
-                            sx={{
-                                width: "100%",
-                            }}
-                            alt="Python example"
-                            src={authPic}
-                        />
-                    </CardContent>
-                </Card>
-            </Masonry>
+            <DocsParagraph>1) After installation you need to import the class.</DocsParagraph>
+            <CodeBlock>
+                # Import TFA class
+                <br />
+                from tfa_python_sdk import TFA
+            </CodeBlock>
+            <DocsParagraph>2) Now define your access token.</DocsParagraph>
+            <CodeBlock>
+                # Import TFA class
+                <br />
+                from tfa_python_sdk import TFA
+                <br />
+                <br />
+                # Define your access token and initial auth
+                <br />
+                auth = TFA("access_token")
+            </CodeBlock>
+            <DocsParagraph>3) Last step, auth user with the user token. Now result have the json object and status code.</DocsParagraph>
+            <CodeBlock>
+                # Import TFA class
+                <br />
+                from tfa_python_sdk import TFA
+                <br />
+                <br />
+                # Define your access token and initial auth
+                <br />
+                auth = TFA("access_token")
+                <br />
+                <br />
+                # Authenticate user
+                <br />
+                result = auth.authUser("user_token")
+            </CodeBlock>
             <DocsTitle>Next step?</DocsTitle>
             <DocsParagraph>
                 Now you need to check the status code and if you see 401, check the message. I recommend you to read about status codes and messages in status code page. Link is shown below.
@@ -112,7 +78,7 @@ const PythonSDK = () => {
                     <br />
                     <Button
                         variant="text"
-                        href="https://github.com/tele-fa/tfa-python-sdk"
+                        href="https://github.com/tfasoft/sdk-python"
                     >
                         - SDK source in GitHub
                     </Button>
