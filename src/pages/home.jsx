@@ -19,7 +19,8 @@ import PythonIcon from '../assets/svg/python.svg';
 import NodeJsIcon from '../assets/svg/nodejs.svg';
 import PhpIcon from '../assets/svg/php.svg';
 import MicrosoftIcon from '../assets/svg/microsoft.svg';
-import PythonExample from '../assets/svg/python-example.svg';
+
+import CodeBlock from "../components/codeblock";
 
 const sdks = [
     {
@@ -91,17 +92,25 @@ const HomePage = () => {
                     sx={{
                         display: 'flex',
                         alignItems: 'center',
+                        justifyContent: 'center',
                     }}
                     item
                 >
-                    <Box
-                        component="img"
-                        sx={{
-                            width: "100%",
-                        }}
-                        alt="Python example"
-                        src={PythonExample}
-                    />
+                    <CodeBlock>
+                        # Import TFA class
+                        <br />
+                        from tfa_python_sdk import TFA
+                        <br />
+                        <br />
+                        # Define your access token and initial auth
+                        <br />
+                        auth = TFA("access_token")
+                        <br />
+                        <br />
+                        # Authenticate user
+                        <br />
+                        result = auth.authUser("user_token")
+                    </CodeBlock>
                 </Grid>
             </Grid>
             <br />
