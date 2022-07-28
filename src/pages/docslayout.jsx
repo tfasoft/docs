@@ -51,8 +51,8 @@ const sdkItems = [
         href: "/sdks/python",
     },
     {
-        title: "Laravel",
-        href: "/sdks/laravel",
+        title: "Php",
+        href: "/sdks/Php",
     },
     {
         title: ".Net",
