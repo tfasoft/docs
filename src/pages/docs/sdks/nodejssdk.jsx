@@ -48,7 +48,7 @@ const NodeJsSDK = () => {
             </CodeBlock>
             <DocsParagraph>3) Last step, auth user with the user token. Now result have the json object and status code.</DocsParagraph>
             <CodeBlock>
-            // Require TFA class
+                // Require TFA class
                 <br />
                 const tfa = require("tfa-node-sdk");
                 <br />
