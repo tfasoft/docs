@@ -16,6 +16,7 @@ import importPic from "../../../assets/images/python/python-1-import.png";
 import accessPic from "../../../assets/images/python/python-2-access.png";
 import authPic from "../../../assets/images/python/python-3-auth.png";
 import installPic from "../../../assets/images/python/python-install.png";
+import CodeBlock from "../../../components/codeblock";
 
 const PythonSDK = () => {
     const history = useHistory();
@@ -28,14 +29,9 @@ const PythonSDK = () => {
             </DocsParagraph>
             <DocsSubTitle>Installation</DocsSubTitle>
             <DocsParagraph>You can install this SDK with PIP.</DocsParagraph>
-            <Box
-                component="img"
-                sx={{
-                    width: "35%",
-                }}
-                alt="Python example"
-                src={installPic}
-            />
+            <CodeBlock>
+                $ pip3 install tfa-python-sdk
+            </CodeBlock>
             <br />
             <br />
             <DocsSubTitle>Writing code</DocsSubTitle>
