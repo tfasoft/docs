@@ -171,8 +171,8 @@ const HomePage = () => {
                     item
                 >
                     <Masonry
+                        columns={{ md: 2, sm: 2, xs: 1 }}
                         spacing={2}
-                        columns={2}
                     >
                         {
                             sdks.map((sdk) => {
