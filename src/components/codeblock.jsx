@@ -1,15 +1,22 @@
-import { CodeBlock, github } from "react-code-blocks";
+import { Box } from "@mui/material";
 
-const TFACodeBlock = (props) => {
+const CodeBlock = (props) => {
     return (
-        <CodeBlock
-            theme={github}
-            text={props.code}
-            language={props.language}
-            showLineNumbers={false}
-            wrapLines
-        />
+        <Box
+            sx={{
+                bgcolor: "#002240",
+                borderRadius: 2,
+                color: "white",
+                fontSize: 17,
+                fontFamily: "Roboto Mono",
+                p: 3,
+            }}
+        >
+            {
+                props.children
+            }
+        </Box>
     );
 }
 
-export default TFACodeBlock;
+export default CodeBlock;
