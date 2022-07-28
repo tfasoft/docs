@@ -15,7 +15,7 @@ import DocsLayout from "./pages/docslayout";
 // Import SDK Pages
 import SDKsPage from "./pages/docs/sdks/sdks";
 import NetSDK from "./pages/docs/sdks/netsdk";
-import LaravelSDK from "./pages/docs/sdks/laravelsdk";
+import PhpSDK from "./pages/docs/sdks/phpsdk";
 import PythonSDK from "./pages/docs/sdks/pythonsdk";
 import NodeJsSDK from "./pages/docs/sdks/nodejssdk";
 
@@ -23,6 +23,7 @@ import NodeJsSDK from "./pages/docs/sdks/nodejssdk";
 import Docs from "./pages/docs/docs/docs";
 import DocsAPI from "./pages/docs/docs/api";
 import DocsCodes from "./pages/docs/docs/codes";
+
 
 const routes = [
     {
@@ -50,8 +51,8 @@ const routes = [
         component: <PythonSDK />
     },
     {
-        route: '/sdks/laravel',
-        component: <LaravelSDK />
+        route: '/sdks/php',
+        component: <PhpSDK />
     },
     {
         route: '/sdks/.net',
