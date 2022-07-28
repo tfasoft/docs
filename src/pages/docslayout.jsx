@@ -1,8 +1,8 @@
+import { useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 
 import {
     Box,
-    Typography,
     Drawer,
     List,
     ListItemButton,
@@ -13,10 +13,12 @@ import {
     Card,
     CardContent,
     Container,
+    Button,
 } from "@mui/material";
-import DocsTitle from "../components/text/docstitle";
-import DocsSubTitle from "../components/text/docssubtitle";
-import DocsParagraph from "../components/text/docsparagraph";
+
+import {
+    Menu
+} from "@mui/icons-material"
 
 const drawerWidth = 260;
 
@@ -62,6 +64,8 @@ const DocsLayout = (props) => {
     const history = useHistory();
     const location = useLocation();
 
+    const [drawerOpen, setDrawerOpen] = useState(true);
+
     const children = props.children;
 
     return (
@@ -71,23 +75,48 @@ const DocsLayout = (props) => {
                 mt: "1rem",
                 mb: "1rem",
             }}
+            
         >
             <Box
-                sx={{
-                    display: "flex",
-                    width: "100%"
-                }}
+                sx={
+                    drawerOpen
+                    ?
+                    {
+                        display: "flex",
+                        // width: `calc(100% - ${drawerWidth}px)`,
+                    }
+                    :
+                    {
+                        // display: "flex",
+                        // width: `calc(100% + ${drawerWidth}px)`,
+                    }
+                }
             >
                 <Drawer
                     sx={{
                         width: drawerWidth,
                         flexShrink: 0,
-                        [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
-                    }}
-                    variant="permanent"
+                        '& .MuiDrawer-paper': {
+                          width: drawerWidth,
+                          boxSizing: 'border-box',
+                        },
+                      }}
+                    variant="persistent"
                     anchor="left"
+                    open={drawerOpen}
                 >
                     <Toolbar />
+                    <Divider />
+                    <Toolbar>
+                        <Button
+                            variant="outlined"
+                            startIcon={<Menu />}
+                            onClick={() => setDrawerOpen(false)}
+                            fullWidth
+                        >
+                            Collapse menu
+                        </Button>
+                    </Toolbar>
                     <Divider />
                     <List
                         subheader={<ListSubheader>Docs</ListSubheader>}
@@ -119,13 +148,27 @@ const DocsLayout = (props) => {
                 </Drawer>
                 <Box
                     sx={{
-                        width: '100%'
+                        width: "100%"
                     }}
                 >
                     <Card
                         variant="outlined"
                     >
                         <CardContent>
+                            {
+                                !drawerOpen
+                                &&
+                                <Box>
+                                    <Button
+                                        variant="outlined"
+                                        startIcon={<Menu />}
+                                        onClick={() => setDrawerOpen(true)}
+                                    >
+                                        Open menu
+                                    </Button>
+                                    <br /><br />
+                                </Box>
+                            }
                             {children}
                         </CardContent>
                     </Card>
