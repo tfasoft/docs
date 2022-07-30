@@ -99,7 +99,7 @@ const Navbar = () => {
                                 href={!item.inside && item.href}
                                 onClick={() => item.inside && history.push(item.href)}
                             >
-                                <ListItemIcon>{ item.icon }</ListItemIcon>
+                                <ListItemIcon sx={{ color: "primary.main" }}>{ item.icon }</ListItemIcon>
                                 <ListItemText
                                     primary={item.name}
                                 />
@@ -127,7 +127,7 @@ const Navbar = () => {
                             aria-label="open drawer"
                             edge="start"
                             onClick={handleDrawerToggle}
-                            sx={{ mr: 2, display: { sm: 'none' } }}
+                            sx={{ mr: 2, display: { xs: 'block', sm: 'block', md: 'none' } }}
                         >
                             <Menu />
                         </IconButton>
@@ -142,7 +142,7 @@ const Navbar = () => {
                         >
                             TFASoft Docs
                         </Typography>
-                        <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+                        <Box sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }}>
                             {
                                 navItems.map((item) => (
                                     <Button
@@ -168,7 +168,7 @@ const Navbar = () => {
                         keepMounted: true,
                     }}
                     sx={{
-                        display: { xs: 'block', sm: 'none' },
+                        display: { xs: 'block', sm: 'block', md: 'none' },
                         '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
                     }}
                 >
