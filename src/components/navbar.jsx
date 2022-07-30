@@ -14,22 +14,59 @@ import {
     ListItem,
     ListItemButton,
     ListItemText,
+    ListItemIcon,
     Divider,
 } from "@mui/material";
 
 import {
-    Menu as MenuIcon,
+    Menu,
+    Dashboard,
+    MenuBook,
+    Biotech,
+    RssFeed,
+    Email,
+    Inventory,
+    Home,
 } from "@mui/icons-material";
+
 
 const drawerWidth = 240;
 const navItems = [
     {
+        name: 'TFASoft',
+        href: 'https://tfasoft.amirhossein.info',
+        icon: <Home />,
+        inside: false,
+    },
+    {
+        name: 'Dashboard',
+        href: 'https://dashboard.amirhossein.info',
+        icon: <Dashboard />,
+        inside: false,
+    },
+    {
+        name: 'Blog',
+        href: 'https://blog.amirhossein.info',
+        icon: <RssFeed />,
+        inside: false,
+    },
+    {
+        name: 'Demo',
+        href: 'https://demo.amirhossein.info',
+        icon: <Biotech />,
+        inside: false,
+    },
+    {
         name: 'Docs',
-        href: '/docs'
+        href: '/docs',
+        icon: <MenuBook />,
+        inside: true,
     },
     {
         name: 'SDKs',
-        href: '/sdks'
+        href: '/sdks',
+        icon: <Inventory />,
+        inside: true,
     }
 ];
 
@@ -47,9 +84,8 @@ const Navbar = () => {
             <Typography
                 variant="h6"
                 sx={{ my: 2 }}
-                onClick={() => history.push('/')}
             >
-                TFASoft Docs
+                TFASoft services
             </Typography>
             <Divider />
             <List>
@@ -60,9 +96,10 @@ const Navbar = () => {
                             disablePadding
                         >
                             <ListItemButton
-                                onClick={() => history.push(item.href)}
-                                sx={{ textAlign: 'center' }}
+                                href={!item.inside && item.href}
+                                onClick={() => item.inside && history.push(item.href)}
                             >
+                                <ListItemIcon>{ item.icon }</ListItemIcon>
                                 <ListItemText
                                     primary={item.name}
                                 />
@@ -92,7 +129,7 @@ const Navbar = () => {
                             onClick={handleDrawerToggle}
                             sx={{ mr: 2, display: { sm: 'none' } }}
                         >
-                            <MenuIcon />
+                            <Menu />
                         </IconButton>
                         <Typography
                             variant="h6"
@@ -100,7 +137,6 @@ const Navbar = () => {
                             onClick={() => history.push('/')}
                             sx={{
                                 flexGrow: 1,
-                                display: { xs: 'none', sm: 'block' },
                                 cursor: "pointer",
                             }}
                         >
