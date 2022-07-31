@@ -24,7 +24,6 @@ import {
     MenuBook,
     Biotech,
     RssFeed,
-    Email,
     Inventory,
     Home,
 } from "@mui/icons-material";
@@ -116,8 +115,8 @@ const Navbar = () => {
     return (
         <Box>
             <AppBar
-                variant="outlined"
                 color="primary"
+                elevation={0}
                 sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
             >
                 <Container>
@@ -175,6 +174,7 @@ const Navbar = () => {
                     {drawer}
                 </Drawer>
             </Box>
+            
             <Toolbar />
         </Box>
     );
