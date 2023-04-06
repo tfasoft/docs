@@ -1,0 +1,35 @@
+.markdown {
+    /* padding: 10px; */
+}
+
+.markdown h1 {
+    color: #002240;
+}
+
+.markdown h2 {
+    color: #002240;
+}
+
+.markdown h3 {
+    color: #002240;
+}
+
+.markdown h4 {
+    color: #002240;
+}
+
+.markdown h5 {
+    color: #002240;
+}
+
+.markdown h6 {
+    color: #002240;
+}
+
+.markdown pre {
+    background: #002240;
+    color: white;
+    font-family: "Roboto Mono";
+    padding: 15px;
+    border-radius: 5px;
+}
