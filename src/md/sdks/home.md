@@ -1,3 +1,4 @@
+```python
 # Import TFA class
 from tfa_python_sdk import TFA
 
@@ -6,4 +7,4 @@ auth = TFA("access_token")
 
 # Authenticate user
 result = auth.authUser("user_token")
-
+```
