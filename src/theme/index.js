@@ -1,4 +1,4 @@
-import { createTheme } from "@mui/material";
+import { colors, createTheme } from "@mui/material";
 
 const theme = createTheme({
   palette: {
@@ -6,7 +6,7 @@ const theme = createTheme({
       default: "#f1f1f1",
     },
     primary: {
-      main: "#071e4e",
+      main: colors.blue[600],
     },
   },
 });
