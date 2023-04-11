@@ -94,7 +94,7 @@ const HomePage = () => {
             <Button
               variant="contained"
               size="large"
-              onClick={() => history.push("/docs/sdks")}
+              onClick={() => history.push("/docs/sdks/README.md")}
               disableElevation
             >
               Get started with SDKs
