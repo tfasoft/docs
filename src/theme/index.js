@@ -1,4 +1,6 @@
-import { colors, createTheme } from "@mui/material";
+import styles from "@/styles/globals.module.sass";
+
+import { createTheme } from "@mui/material";
 
 const theme = createTheme({
   palette: {
@@ -6,7 +8,7 @@ const theme = createTheme({
       default: "#f1f1f1",
     },
     primary: {
-      main: colors.blue[600],
+      main: styles.primaryColor,
     },
   },
 });
