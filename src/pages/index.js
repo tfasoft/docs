@@ -118,7 +118,7 @@ const HomePage = () => {
         <Grid xs={6} item>
           <Masonry columns={{ md: 2, sm: 2, xs: 1 }} spacing={2}>
             {sdks.map((sdk) => {
-              return <SDK sdk={sdk} />;
+              return <SDK key={sdk.title} sdk={sdk} />;
             })}
           </Masonry>
         </Grid>
