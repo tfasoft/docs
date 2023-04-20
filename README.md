@@ -1,3 +1,3 @@
-# Telegram Factor Authentication - Docs
+# TFASoft Docs
 
 Telegram Factor Authentication documents.
