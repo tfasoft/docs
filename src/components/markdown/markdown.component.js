@@ -1,8 +1,9 @@
-import { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-
+import { useState } from "react";
 import axios from "axios";
+
+import { Loader } from "@/components";
 
 function Markdown({ path }) {
   const [markdown, setMarkdown] = useState("");
@@ -18,7 +19,11 @@ function Markdown({ path }) {
     .then((response) => setMarkdown(response.data))
     .catch(() => setMarkdown(error404));
 
-  return <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown>;
+  return markdown ? (
+    <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown>
+  ) : (
+    <Loader />
+  );
 }
 
 export default Markdown;
