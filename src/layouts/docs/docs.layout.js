@@ -18,7 +18,7 @@ import {
 } from "@mui/material";
 import { Loader } from "@/components";
 
-const drawerWidth = "auto";
+const drawerWidth = 240;
 
 const DocsLayout = ({ children }) => {
   const history = useRouter();
@@ -91,50 +91,36 @@ const DocsLayout = ({ children }) => {
   }, []);
 
   return (
-    <Container
-      maxWidth="xl"
-      sx={{
-        mt: "1rem",
-        mb: "1rem",
-      }}
-    >
-      <Box>
-        <Drawer
-          sx={{
+    <Box sx={{ display: "flex" }}>
+      <Drawer
+        sx={{
+          width: drawerWidth,
+          flexShrink: 0,
+          "& .MuiDrawer-paper": {
             width: drawerWidth,
-            flexShrink: 0,
-            "& .MuiDrawer-paper": {
-              width: drawerWidth,
-              boxSizing: "border-box",
-            },
-          }}
-          variant="persistent"
-          anchor="left"
-          open={true}
-        >
-          <Toolbar />
-          <Divider />
-          <Toolbar>
-            <Box sx={{ textAlign: "center", width: "100%" }}>
-              <Typography color="primary" variant="h5" fontWeight="bold">
-                TFASoft Docs
-              </Typography>
-            </Box>
-          </Toolbar>
-          <Divider />
-          {items.length !== 0 ? rec(items, 1) : <Loader />}
-        </Drawer>
-        <Box
-          sx={{
-            width: "100%",
-          }}
-        >
-          <Card variant="outlined">
-            <CardContent>{children}</CardContent>
-          </Card>
-        </Box>
+            boxSizing: "border-box",
+          },
+        }}
+        variant="permanent"
+        anchor="left"
+      >
+        <Toolbar>
+          <Typography color="primary" variant="h5" fontWeight="bold">
+            TFASoft Docs
+          </Typography>
+        </Toolbar>
+        <Divider />
+        {items.length !== 0 ? rec(items, 1) : <Loader />}
+      </Drawer>
+      <Box
+        component="main"
+        sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}
+      >
+        <Card variant="outlined">
+          <CardContent>{children}</CardContent>
+        </Card>
       </Box>
-    </Container>
+    </Box>
   );
 };
 
