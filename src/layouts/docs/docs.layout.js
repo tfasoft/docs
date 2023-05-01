@@ -16,6 +16,7 @@ import {
   Container,
   Typography,
 } from "@mui/material";
+import { Loader } from "@/components";
 
 const drawerWidth = "auto";
 
@@ -121,7 +122,7 @@ const DocsLayout = ({ children }) => {
             </Box>
           </Toolbar>
           <Divider />
-          {rec(items, 1)}
+          {items.length !== 0 ? rec(items, 1) : <Loader />}
         </Drawer>
         <Box
           sx={{
