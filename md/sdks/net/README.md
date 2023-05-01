@@ -1,3 +1,0 @@
-# .Net
-
-Coming soon . . .
