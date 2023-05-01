@@ -4,9 +4,48 @@ $primaryColor: #1e88e5
     h1, h2, h3, h4, h5, h6
         color: $primaryColor
 
+    code
+        background: $primaryColor
+        color: white
+        padding: 5px
+        border-radius: 5px
+
     pre
         background: $primaryColor
         color: white
-        font-family: "Roboto Mono"
         padding: 15px
         border-radius: 5px
+
+        direction: ltr
+
+        code
+            padding: 0px
+
+    table
+        border-collapse: collapse
+        margin: 25px 0
+        font-size: 0.9em
+        font-family: sans-serif
+        width: 50%
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15)
+
+        thead
+            tr
+                background-color: $primaryColor
+                color: #ffffff
+
+        th, td
+            padding: 12px 15px
+
+        tbody tr
+            border-bottom: 1px solid #dddddd
+
+        tbody tr:nth-of-type(even)
+            background-color: #f3f3f3
+
+        tbody tr:last-of-type
+            border-bottom: 2px solid $primaryColor
+
+        tbody tr.active-row
+            font-weight: bold
+            color: $primaryColor
