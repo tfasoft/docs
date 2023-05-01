@@ -30,7 +30,7 @@ const navItems = [
   },
   {
     name: "Documentations",
-    href: "/docs/README.md",
+    href: "/docs/index.md",
     icon: <MenuBook />,
     inside: true,
   },

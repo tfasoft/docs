@@ -15,28 +15,28 @@ const sdks = [
   {
     title: "Python",
     details: "Python SDK for your Django or Flask applications.",
-    href: "/docs/sdks/python/README.md",
+    href: "/docs/sdks/python/index.md",
     logo: PythonIcon,
   },
   {
     title: "NodeJs",
     details:
       "You can use NodeJs SDK in your React, Express or even your telegram bots!",
-    href: "/docs/sdks/node/README.md",
+    href: "/docs/sdks/node/index.md",
     logo: NodeJsIcon,
   },
   {
     title: ".Net",
     details:
       "If you are a .Net developer, you can now use .Net SDK in your web, desktop or mobile applications.",
-    href: "/docs/sdks/net/README.md",
+    href: "/docs/sdks/net/index.md",
     logo: MicrosoftIcon,
   },
   {
     title: "Php",
     details:
       "You are a Php/Laravel developer and need to use TFA, do your job with Php SDK!",
-    href: "/docs/sdks/php/README.md",
+    href: "/docs/sdks/php/index.md",
     logo: PhpIcon,
   },
 ];
@@ -70,7 +70,7 @@ const HomePage = () => {
         </Grid>
         <Grid xs={6} item>
           <Box className="markdown">
-            <Markdown path="https://raw.githubusercontent.com/tfasoft/docs/main/src/md/sdks/intro.md" />
+            <Markdown path="https://md.tfasoft.com/intro.md" />
           </Box>
         </Grid>
       </Grid>
@@ -94,7 +94,7 @@ const HomePage = () => {
             <Button
               variant="contained"
               size="large"
-              onClick={() => history.push("/docs/sdks/README.md")}
+              onClick={() => history.push("/docs/sdks/index.md")}
               disableElevation
             >
               Get started with SDKs

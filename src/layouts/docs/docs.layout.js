@@ -24,11 +24,9 @@ const DocsLayout = ({ children }) => {
   const { path } = history.query;
 
   const [items, setItems] = useState([]);
-  const space = 0.1;
+  const space = 0.5;
 
-  const where = `/${path.join("/")}`;
-
-  console.log(where.replace("/docs", ""));
+  const where = `/docs/${path.join("/")}`;
 
   const rec = (dir, pad) => {
     return dir.map((item, index) => {
@@ -38,7 +36,7 @@ const DocsLayout = ({ children }) => {
         return (
           <List
             key={`${item.name}-${index}`}
-            sx={{ pr: pad + space }}
+            sx={{ px: pad + space }}
             subheader={
               <ListSubheader
                 onClick={() => history.push(`${path}/index.md`)}
@@ -58,7 +56,7 @@ const DocsLayout = ({ children }) => {
         return (
           <List
             key={`${item.name}-${index}`}
-            sx={{ pr: pad + space }}
+            sx={{ px: pad + space }}
             disablePadding
             dense
           >
@@ -66,8 +64,7 @@ const DocsLayout = ({ children }) => {
               selected={(where === path) | (where === `${path}/`)}
               onClick={() => history.push(path)}
               sx={{
-                borderTopRightRadius: 20,
-                borderBottomRightRadius: 20,
+                borderRadius: 2,
               }}
             >
               <ListItemText primary={item.title} />
