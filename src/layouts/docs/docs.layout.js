@@ -1,5 +1,6 @@
-import { useState } from "react";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 import {
   Box,
@@ -13,73 +14,83 @@ import {
   Card,
   CardContent,
   Container,
-  Button,
+  Typography,
 } from "@mui/material";
 
-import { Menu } from "@mui/icons-material";
-
-const drawerWidth = 260;
-
-const items = [
-  {
-    id: 1,
-    title: "Docs",
-    items: [
-      {
-        title: "Docs Introduction",
-        href: "/docs/README.md",
-      },
-    ],
-  },
-  {
-    id: 2,
-    title: "API Docs",
-    items: [
-      {
-        title: "API",
-        href: "/docs/api/README.md",
-      },
-      {
-        title: "Status codes",
-        href: "/docs/api/codes.md",
-      },
-    ],
-  },
-  {
-    id: 3,
-    title: "SDKs Docs",
-    items: [
-      {
-        title: "SDKs Introduction",
-        href: "/docs/sdks/README.md",
-      },
-      {
-        title: "NodeJs",
-        href: "/docs/sdks/node/README.md",
-      },
-      {
-        title: "Python",
-        href: "/docs/sdks/python/README.md",
-      },
-      {
-        title: "Php",
-        href: "/docs/sdks/php/README.md",
-      },
-      {
-        title: ".Net",
-        href: "/docs/sdks/net/README.md",
-      },
-    ],
-  },
-];
+const drawerWidth = "auto";
 
 const DocsLayout = ({ children }) => {
   const history = useRouter();
   const { path } = history.query;
 
-  const where = `/docs/${path.join("/")}`;
+  const [items, setItems] = useState([]);
+  const space = 0.1;
 
-  const [drawerOpen, setDrawerOpen] = useState(true);
+  const where = `/${path.join("/")}`;
+
+  console.log(where.replace("/docs", ""));
+
+  const rec = (dir, pad) => {
+    return dir.map((item, index) => {
+      const path = item.path.replace("/var/www", "");
+
+      if (item.hasOwnProperty("children")) {
+        return (
+          <List
+            key={`${item.name}-${index}`}
+            sx={{ pr: pad + space }}
+            subheader={
+              <ListSubheader
+                onClick={() => history.push(`${path}/index.md`)}
+                sx={{ cursor: "pointer" }}
+                color="primary"
+              >
+                {item.name}
+              </ListSubheader>
+            }
+            disablePadding
+            dense
+          >
+            {rec(item.children, pad + space)}
+          </List>
+        );
+      } else {
+        return (
+          <List
+            key={`${item.name}-${index}`}
+            sx={{ pr: pad + space }}
+            disablePadding
+            dense
+          >
+            <ListItemButton
+              selected={(where === path) | (where === `${path}/`)}
+              onClick={() => history.push(path)}
+              sx={{
+                borderTopRightRadius: 20,
+                borderBottomRightRadius: 20,
+              }}
+            >
+              <ListItemText primary={item.title} />
+            </ListItemButton>
+          </List>
+        );
+      }
+    });
+  };
+
+  const doing = async () => {
+    try {
+      const { data } = await axios.get("https://api.tfasoft.com/api/docs/tree");
+
+      setItems(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    doing();
+  }, []);
 
   return (
     <Container
@@ -89,15 +100,7 @@ const DocsLayout = ({ children }) => {
         mb: "1rem",
       }}
     >
-      <Box
-        sx={
-          drawerOpen
-            ? {
-                display: "flex",
-              }
-            : {}
-        }
-      >
+      <Box>
         <Drawer
           sx={{
             width: drawerWidth,
@@ -109,37 +112,19 @@ const DocsLayout = ({ children }) => {
           }}
           variant="persistent"
           anchor="left"
-          open={drawerOpen}
+          open={true}
         >
           <Toolbar />
           <Divider />
           <Toolbar>
-            <Button
-              variant="outlined"
-              startIcon={<Menu />}
-              onClick={() => setDrawerOpen(false)}
-              fullWidth
-            >
-              Collapse menu
-            </Button>
+            <Box sx={{ textAlign: "center", width: "100%" }}>
+              <Typography color="primary" variant="h5" fontWeight="bold">
+                TFASoft Docs
+              </Typography>
+            </Box>
           </Toolbar>
           <Divider />
-          {items.map((item) => (
-            <Box key={item.id}>
-              <List subheader={<ListSubheader>{item.title}</ListSubheader>}>
-                {item.items.map((it) => (
-                  <ListItemButton
-                    selected={(where === it.href) | (where === `${it.href}/`)}
-                    key={it.id}
-                    onClick={() => history.push(it.href)}
-                  >
-                    <ListItemText primary={it.title} />
-                  </ListItemButton>
-                ))}
-              </List>
-              <Divider />
-            </Box>
-          ))}
+          {rec(items, 1)}
         </Drawer>
         <Box
           sx={{
@@ -147,22 +132,7 @@ const DocsLayout = ({ children }) => {
           }}
         >
           <Card variant="outlined">
-            <CardContent>
-              {!drawerOpen && (
-                <Box>
-                  <Button
-                    variant="outlined"
-                    startIcon={<Menu />}
-                    onClick={() => setDrawerOpen(true)}
-                  >
-                    Open menu
-                  </Button>
-                  <br />
-                  <br />
-                </Box>
-              )}
-              {children}
-            </CardContent>
+            <CardContent>{children}</CardContent>
           </Card>
         </Box>
       </Box>

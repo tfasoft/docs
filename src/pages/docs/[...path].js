@@ -6,7 +6,7 @@ import { Box } from "@mui/material";
 export async function getServerSideProps({ params }) {
   const path = params.path.join("/");
 
-  const madePath = `https://raw.githubusercontent.com/tfasoft/docs/main/md/${path}`;
+  const madePath = `https://md.tfasoft.com/${path}`;
 
   return { props: { madePath } };
 }
